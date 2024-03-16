@@ -80,11 +80,6 @@ class PersonalTest {
     getQuestion() { // questions의 키를 참조해서 질문을 반환
         return Object.entries(this.questions)
         .flatMap(([type, questions]) => questions.map(question => ({ ...question, type })));
-
-        /*
-        2023-05-19 리팩토링
-        1. Object.entries를 사용하여 객체를 배열로 변환 후 이차원 배열을 flatMap으로 평탄화.
-        */
     }
 
     getCurrentQuestions() { // 현재 progress의 질문을 반환
@@ -122,7 +117,7 @@ class PersonalTest {
     }
 
     submitApplication() {
-        window.location.href = 'https://forms.gle/fYsbKe5mSeFUui9J8';
+        window.open('https://forms.gle/fYsbKe5mSeFUui9J8', '_blank');
     }    
 
     // 사용자가 각 질문에 대해 응답하기 시작할 때의 시간을 기록하는 함수
